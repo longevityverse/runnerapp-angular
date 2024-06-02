@@ -21,7 +21,8 @@ export class TaskListComponent implements OnInit {
     this.filterTasks();
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(event: KeyboardEvent) {
+    const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
