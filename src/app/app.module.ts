@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,6 +40,7 @@ import { AppRoutingModule } from './app.routes';
     MatFormFieldModule,
     MatSelectModule,
     MatTableModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [TaskService],
