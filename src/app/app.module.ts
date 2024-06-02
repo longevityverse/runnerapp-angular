@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 
@@ -19,32 +20,32 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskService } from './task.service';
 import { ExcelImportService } from './excel-import.service';
-import { AppRoutingModule } from './app.routes';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    TaskListComponent,
-    TaskDetailsComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatTableModule,
-    FormsModule,
-    AppRoutingModule
-  ],
-  providers: [TaskService, ExcelImportService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        TaskListComponent,
+        TaskDetailsComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatTableModule,
+        FormsModule,
+        RouterModule.forRoot([])
+    ],
+    providers: [TaskService, ExcelImportService],
+    bootstrap: [AppComponent],
 })
 export class AppModule { }
