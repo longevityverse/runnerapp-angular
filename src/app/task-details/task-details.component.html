@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>Feladat Részletei</mat-card-title>
+    <mat-card-content *ngIf="task">
+      <mat-form-field appearance="fill">
+        <mat-label>Feladat Neve</mat-label>
+        <input matInput [(ngModel)]="task.name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Telephely kód</mat-label>
+        <input matInput [(ngModel)]="task.locationCode" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Összes terminál igény</mat-label>
+        <input matInput [(ngModel)]="task.totalTerminalsRequired" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fesztivál</mat-label>
+        <input matInput [(ngModel)]="task.festival" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Feladat Állapota</mat-label>
+        <mat-select [(ngModel)]="task.status">
+          <mat-option value="Függőben">Függőben</mat-option>
+          <mat-option value="Befejezve">Befejezve</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Megjegyzés</mat-label>
+        <input matInput [(ngModel)]="task.note">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Megjegyzés ideje</mat-label>
+        <input matInput [(ngModel)]="task.noteTime" disabled>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Véglegesítés ideje</mat-label>
+        <input matInput [(ngModel)]="task.finalizeTime" disabled>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="saveTask()">Mentés</button>
+    </mat-card-content>
+  </mat-card>
+  

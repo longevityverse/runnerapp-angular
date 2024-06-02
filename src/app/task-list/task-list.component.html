@@ -1,0 +1,99 @@
+<mat-card>
+    <mat-card-title>Feladat Lista</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Fesztivál kiválasztása</mat-label>
+        <mat-select [(ngModel)]="selectedFestival" (selectionChange)="onFestivalChange()">
+          <mat-option *ngFor="let festival of festivals" [value]="festival">{{festival}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Feladatok szűrése</mat-label>
+        <input matInput (input)="applyFilter($event.target.value)" placeholder="Írja be a szűrő kulcsszavát">
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let task">{{task.id}}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Név</th>
+          <td mat-cell *matCellDef="let task">{{task.name}}</td>
+        </ng-container>
+        <!-- Location Code Column -->
+        <ng-container matColumnDef="locationCode">
+          <th mat-header-cell *matHeaderCellDef>Telephely kód</th>
+          <td mat-cell *matCellDef="let task">{{task.locationCode}}</td>
+        </ng-container>
+        <!-- Total Terminals Required Column -->
+        <ng-container matColumnDef="totalTerminalsRequired">
+          <th mat-header-cell *matHeaderCellDef>Összes terminál igény</th>
+          <td mat-cell *matCellDef="let task">{{task.totalTerminalsRequired}}</td>
+        </ng-container>
+        <!-- Issued Column -->
+        <ng-container matColumnDef="issued">
+          <th mat-header-cell *matHeaderCellDef>Kiadva</th>
+          <td mat-cell *matCellDef="let task">{{task.issued ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Deployed Column -->
+        <ng-container matColumnDef="deployed">
+          <th mat-header-cell *matHeaderCellDef>Kihelyezés</th>
+          <td mat-cell *matCellDef="let task">{{task.deployed ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Electricity Column -->
+        <ng-container matColumnDef="electricity">
+          <th mat-header-cell *matHeaderCellDef>Áram</th>
+          <td mat-cell *matCellDef="let task">{{task.electricity ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Distributor Column -->
+        <ng-container matColumnDef="distributor">
+          <th mat-header-cell *matHeaderCellDef>Elosztó</th>
+          <td mat-cell *matCellDef="let task">{{task.distributor ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Software Column -->
+        <ng-container matColumnDef="software">
+          <th mat-header-cell *matHeaderCellDef>Szoftver</th>
+          <td mat-cell *matCellDef="let task">{{task.software ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Tested Column -->
+        <ng-container matColumnDef="tested">
+          <th mat-header-cell *matHeaderCellDef>Teszt</th>
+          <td mat-cell *matCellDef="let task">{{task.tested ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Finalized Column -->
+        <ng-container matColumnDef="finalized">
+          <th mat-header-cell *matHeaderCellDef>Véglegesítve</th>
+          <td mat-cell *matCellDef="let task">{{task.finalized ? '✔️' : '❌'}}</td>
+        </ng-container>
+        <!-- Note Column -->
+        <ng-container matColumnDef="note">
+          <th mat-header-cell *matHeaderCellDef>Megjegyzés</th>
+          <td mat-cell *matCellDef="let task">{{task.note}}</td>
+        </ng-container>
+        <!-- Note Time Column -->
+        <ng-container matColumnDef="noteTime">
+          <th mat-header-cell *matHeaderCellDef>Megjegyzés ideje</th>
+          <td mat-cell *matCellDef="let task">{{task.noteTime}}</td>
+        </ng-container>
+        <!-- Finalize Time Column -->
+        <ng-container matColumnDef="finalizeTime">
+          <th mat-header-cell *matHeaderCellDef>Véglegesítés ideje</th>
+          <td mat-cell *matCellDef="let task">{{task.finalizeTime}}</td>
+        </ng-container>
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Műveletek</th>
+          <td mat-cell *matCellDef="let task">
+            <button mat-button (click)="editTask(task)">Szerkesztés</button>
+          </td>
+        </ng-container>
+  
+        <!-- Header and Row Declarations -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  
