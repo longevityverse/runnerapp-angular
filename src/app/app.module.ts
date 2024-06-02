@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,7 +20,14 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskService } from './task.service';
 import { ExcelImportService } from './excel-import.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+    { path: '', component: DashboardComponent },
+    { path: 'tasks', component: TaskListComponent },
+    { path: 'tasks/:id', component: TaskDetailsComponent },
+  ];
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -43,7 +50,8 @@ import { RouterModule } from '@angular/router';
         MatOptionModule,
         MatTableModule,
         FormsModule,
-        RouterModule.forRoot([])
+        ReactiveFormsModule,
+        RouterModule.forRoot(appRoutes)
     ],
     providers: [TaskService, ExcelImportService],
     bootstrap: [AppComponent],
