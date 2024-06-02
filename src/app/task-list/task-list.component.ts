@@ -9,9 +9,9 @@ import { TaskService } from '../task.service';
 })
 export class TaskListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'locationCode', 'totalTerminalsRequired', 'issued', 'deployed', 'electricity', 'distributor', 'software', 'tested', 'finalized', 'note', 'noteTime', 'finalizeTime', 'actions'];
-  dataSource = new MatTableDataSource();
-  festivals: string[];
-  selectedFestival: string;
+  dataSource = new MatTableDataSource<any>();
+  festivals: string[] = [];
+  selectedFestival: string = '';
 
   constructor(private taskService: TaskService) { }
 
@@ -33,7 +33,7 @@ export class TaskListComponent implements OnInit {
     this.filterTasks();
   }
 
-  editTask(task) {
+  editTask(task: any) {
     // Logic to navigate to task details and edit
   }
 }

@@ -9,7 +9,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Feladatok szűrése</mat-label>
-        <input matInput (input)="applyFilter($event.target.value)" placeholder="Írja be a szűrő kulcsszavát">
+        <input matInput (input)="applyFilter($event.target?.['value'])" placeholder="Írja be a szűrő kulcsszavát">
       </mat-form-field>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- ID Column -->

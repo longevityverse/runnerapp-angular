@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TaskService } from './task.service';
+import { ExcelImportService } from './excel-import.service';
 import { AppRoutingModule } from './app.routes';
 
 @NgModule({
@@ -43,7 +44,7 @@ import { AppRoutingModule } from './app.routes';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, ExcelImportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,8 +13,8 @@ export class TaskDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private taskService: TaskService) { }
 
   ngOnInit(): void {
-    const taskId = +this.route.snapshot.paramMap.get('id');
-    this.task = this.taskService.getTaskById(taskId);
+    const taskId = Number(this.route.snapshot.paramMap.get('id')); // Convert taskId to a number
+    this.task = this.taskService.getTaskById(taskId) || {};
   }
 
   saveTask() {
